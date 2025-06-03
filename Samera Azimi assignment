@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Video Page</title>
+  <style>
+    /* CSS for styling */
+    body {
+      font-family: 'Arial, sans-serif';
+      background-color: #f0f8ff; /* Light blue background */
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 20px;
+    }
+
+    iframe {
+      border: 5px solid #333;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    #animated-box {
+      width: 100px;
+      height: 100px;
+      background-color: #ff6347; /* Tomato color */
+      margin: 20px auto;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enjoy This Music Video!</h1>
+  
+  <!-- Embedded YouTube video -->
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/watch?v=NG2zyeVRcbs" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Animated box -->
+  <div id="animated-box"></div>
+
+  <script>
+    // JavaScript for animation
+    const box = document.getElementById('animated-box');
+    let position = 0;
+    let direction = 1;
+
+    function animateBox() {
+      position += direction * 2; // Move the box
+      if (position > 300 || position < 0) {
+        direction *= -1; // Reverse direction
+      }
+      box.style.transform = `translateX(${position}px)`; // Apply horizontal movement
+      requestAnimationFrame(animateBox); // Continue animation
+    }
+
+    animateBox(); // Start animation
+  </script>
+</body>
+</html>                                                          
